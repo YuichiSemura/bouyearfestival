@@ -1,0 +1,110 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/vnd.microsoft.icon">
+  </script>
+  <script src="/static/js/page2.js"></script>
+
+  <title>ホーム画面</title>
+</head>
+
+<body>
+  <!-- header -->
+  {% include "header.html" %}
+
+  <!-- ログイン的ヘッダー -->
+  <div class="welcome bg-info text-white" id="header-name">
+    <h5 style="margin: -1px 0px 0px 0px; padding:3px;">ようこそ、 村瀬雄一 さん</h5>
+  </div>
+
+  <div class="container-fluid bg-light2" style="touch-action: manipulation;">
+
+    <!-- 戻る時の矢印 -->
+    {% if is_after %}
+    <img src="/static/image/ue.png" id="loginguide-img"> {% endif %}
+
+    <!-- ページタイトル -->
+    <div class="welcome row text-black bg-light2" style="text-align: center;">
+      <div class="col-sm-12">
+        <h2 style="margin:0px; padding:10px;">プロセスIDを特定しよう！</h3>
+      </div>
+    </div>
+
+    <!-- 答え入力欄 -->
+    <div class="answer bg-light2">
+      <form action="post_p2" method="POST">
+        <div class="form-group row">
+          {{ form.hidden_tag() }}
+          <label class="col-4" style="text-align: right;">
+            <h3>プロセスID</h3>
+          </label>
+          <div class="col-4">
+            {{form.answer2(class_="form-control")}}
+          </div>
+          <div class="col-4">
+            <input type="submit" value="停止" class="btn btn-primary" style=" text-align: left; ">
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- エラーメッセージ -->
+    <div class="row answer">
+      {% for error in form.answer2.errors %}
+      <div class="col-sm-12 col-12">
+        <div class="text-danger" style="text-align: center;">
+          <h3>{{error}}</h3>
+        </div>
+      </div>
+      {% endfor %} {% if err_msg %}
+      <div class="col-sm-12 col-12">
+        <div class="text-danger" style="text-align: center;">
+          <h3>{{err_msg}}</h3>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- engel -->
+    {% if angel_msg %}
+    <div class="row align-items-start justify-content-center">
+      <div id="engelballoon" class="engelballoon col-8 col-sm-7 col-lg-6 col-xl-5">
+        {{angel_msg | safe}}
+      </div>
+      <label for="popup-on" class="col-3 col-sm-3 col-lg-2 col-xl-2">
+        <img id="engelimg" src="static/image/angel.png" class="engelimg yure2">
+      </label>
+    </div>
+    {% endif %}
+
+    <!-- 問題シリーズ -->
+    <div class="row align-items-start justify-content-center">
+      <!-- 問題3 -->
+      <div id="q3" class="col-12 col-md-12 col-lg-10 col-xl-6">
+        <div class="bg-white question-row align-items-start justify-content-around">
+          {% include "q3.html" %}
+        </div>
+      </div>
+      <!-- 問題4 -->
+      <div id="q4" class="col-12 col-md-12 col-lg-10 col-xl-6">
+        <div class="bg-white question-row align-items-start justify-content-around">
+          {% include "q4.html" %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- footer -->
+  {% include "footer.html" %}
+
+</body>
+
+</html>

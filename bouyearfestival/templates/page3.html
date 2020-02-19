@@ -1,0 +1,111 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/fuwafuwa.css">
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/vnd.microsoft.icon">
+  <script src="/static/js/page3.js"></script>
+  <title>ホーム画面・改</title>
+</head>
+
+<body>
+  <!-- header -->
+  {% include "header.html" %}
+
+  <!-- ログイン的ヘッダー -->
+  <div class="welcome bg-info text-white" id="header-name">
+    <h5 style="margin: -1px 0px 0px 0px; padding:3px;">ようこそ、 田中優一 さん</h5>
+  </div>
+
+  <div class="container-fluid bg-light2" style="touch-action: manipulation;">
+
+
+    <!-- success balloon -->
+    {% if success %}
+    <div class="row align-items-start justify-content-center">
+      <div class="col-sm-8 col-8">
+        <div class="fuwafuwa01">
+          <img src="/static/image/heaven.jpg" alt="天国">
+          <!-- /.fuwafuwa01 -->
+        </div>
+      </div>
+    </div>
+    {% else %}
+
+    <!-- ページタイトル -->
+    <div class="welcome row text-black bg-light2" style="text-align: center;">
+      <div class="col-sm-12">
+        <h2 style="margin:0px; padding:10px;">プロセスIDを入力しよう！</h3>
+      </div>
+    </div>
+
+    <!-- form -->
+    <div class="answer bg-light2">
+      <form action="post_p3" method="POST">
+        <div class="form-group row">
+          {{ form.hidden_tag() }}
+          <label class="col-4" style="text-align: right;">
+            <h3>プロセスID</h3>
+          </label>
+          <div class="col-4">
+            {{form.answer3(class_="form-control")}}
+          </div>
+          <div class="col-4">
+            <input type="submit" value="停止" class="btn btn-primary" style=" text-align: left; ">
+          </div>
+        </div>
+      </form>
+    </div>
+    {% endif %}
+
+    <!-- error -->
+    <div class="row answer">
+      {% if err_msg %}
+      <div class="col-sm-12 col-12">
+        <div class="text-danger" style="text-align: center;">
+          <h3>{{err_msg}}</h3>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- angel -->
+    <div class="row align-items-start justify-content-center">
+      <div id="engelballoon" class="engelballoon col-8 col-sm-7 col-lg-6 col-xl-5">
+        {% if success %}
+        <h3>おめでとうございます！</h3>
+        <h3>無事プロセスを停止できましたね！</h3>
+        <br>
+        <h3>これで謎解きは終わりです！</h3>
+        <h3>出題者にこの画面を見せてください！</h3>
+        <h3>あなたの回答時刻は<b>{{datestr}}</b>です！</h3>
+        {% else %}
+        <h3>ログイン出来ましたね！</h3>
+        <h3>　</h3>
+        <h3>問題3と問題4を解いたときの</h3>
+        <h3>プロセスIDを入力して</h3>
+        <h3>プロセスを停止しましょう！</h3>
+        {% endif %}
+      </div>
+      <label for="popup-on" class="col-3 col-sm-3 col-lg-2 col-xl-2">
+        <img id="engelimg" src="static/image/angel.png" class="engelimg yure2">
+      </label>
+    </div>
+
+    <!-- 謎の空白 -->
+    <div style="margin: 10px;">　</div>
+
+  </div>
+
+  <!-- footer -->
+  {% include "footer.html" %}
+
+</body>
+
+</html>

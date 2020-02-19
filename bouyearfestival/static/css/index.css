@@ -1,0 +1,193 @@
+html {
+  overflow: hidden
+}
+
+body {
+  background-color: rgb(255, 249, 198);
+  background-image: radial-gradient(rgb(38, 104, 166) 3px, transparent 3px);
+  background-size: 10vw 10vw;
+  text-align: center;
+  overflow: hidden;
+}
+
+#letterpack {
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+#lettervertical {
+  text-align: center;
+  transition: all 0.2s ease;
+  animation: lettervertical ease-in-out;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  margin: 0 auto;
+}
+
+@keyframes lettervertical {
+  0% {
+    transform: translateY(-35vh)
+  }
+  25% {
+    transform: translateY(-31vh)
+  }
+  50% {
+    transform: translateY(-24vh)
+  }
+  75% {
+    transform: translateY(-11vh)
+  }
+  100% {
+    transform: translateY(0vh)
+  }
+}
+
+#letterhorizon {
+  text-align: center;
+  border-radius: 5vw;
+  transition: all 0.2s ease;
+  animation: letterhorizon ease-in-out;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes letterhorizon {
+  0% {
+    transform: translateX(-30vw)
+  }
+  25% {
+    transform: translateX(32vw)
+  }
+  50% {
+    transform: translateX(-30vw)
+  }
+  75% {
+    transform: translateX(32vw)
+  }
+  100% {
+    transform: translateX(0vw)
+  }
+}
+
+#letterimg {
+  filter: drop-shadow(3vw 3vw 3vw rgba(0, 0, 0, 0.3));
+  transition: all 0.2s ease;
+  animation: letterimg ease-in-out;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes letterimg {
+  0% {
+    transform: rotateX(70deg) rotateZ(70deg) skew(-28deg, -28deg) scale(0.27, 0.27);
+  }
+  10% {
+    transform: rotateX(70deg) rotateZ(70deg) skew(8deg, 8deg) scale(0.27, 0.27);
+  }
+  20% {
+    transform: rotateX(70deg) rotateZ(70deg) skew(-8deg, -8deg) scale(0.27, 0.27);
+  }
+  30% {
+    transform: rotateX(70deg) rotateZ(70deg) skew(8deg, 8deg) scale(0.27, 0.27);
+  }
+  40% {
+    transform: rotateX(70deg) rotateZ(70deg) skew(3deg, 3deg) scale(0.27, 0.27);
+  }
+  50% {
+    transform: translate(0) scale(0.27, 0.27)
+  }
+  53% {
+    transform: scale(0.25, 0.25) skew(-3deg, -3deg);
+  }
+  60% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+#tap {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 10vh;
+  font-family: "HiraKakuProN-W6";
+  font-weight: bolder;
+  color: rgb(32, 60, 184);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  animation: letterguide ease-in-out;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  filter: drop-shadow(3vw 3vw 1vw rgba(0, 0, 0, 0.3));
+}
+
+#tap p {
+  padding: 0;
+  margin: 0 auto;
+  animation: letterguidep ease infinite;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  white-space: nowrap;
+}
+
+@keyframes letterguidep {
+  0% {
+    transform: scale(1, 1)
+  }
+  50% {
+    transform: scale(1.2, 1.2)
+  }
+  100% {
+    transform: scale(1, 1)
+  }
+}
+
+#messagepack {
+  transition: opacity 0.4s ease;
+}
+
+#message {
+  -webkit-transform: translateX(-50%) translateY(-40%);
+  transform: translateX(-50%) translateY(-40%);
+  top: 43vh;
+  left: 50%;
+  width: 80%;
+  position: absolute;
+  padding: 3vh;
+  text-align: left;
+  font-family: "HiraKakuProN-W6";
+  border: solid 1vw #5989cf;
+  color: rgba(0, 36, 153);
+  background: rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(3vw 3vw 3vw rgba(0, 0, 0, 0.3));
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  z-index: 10;
+}
+
+#message p {
+  margin: 0;
+  padding: 0;
+  font-size: 4vw;
+}
+
+#popup-on {
+  display: none;
+}
+
+#popup-on:checked+#messagepack {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.index-footer {
+  width: 100%;
+  position: absolute;
+  padding: 20px;
+  margin: 0px;
+  font-size: 0.8em;
+}

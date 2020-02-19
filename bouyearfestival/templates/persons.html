@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/vnd.microsoft.icon">
+  <script src="/static/js/persons.js"></script>
+  <title>忘年会しおり</title>
+</head>
+
+<body>
+  <!-- header -->
+  {% include "header.html" %}
+
+  <!-- ページ -->
+  <div class="container-fluid bg-light2" style="touch-action: manipulation;">
+
+    <!-- ページタイトル -->
+    <div class="welcome row text-black bg-persons" style="text-align: center;">
+      <div class="col-sm-12">
+        <h2 style="margin:0px; padding:10px;">忘年会幹事一覧</h2>
+      </div>
+    </div>
+
+    <!-- 自己紹介 -->
+    <div class="welcome row text-black bg-persons justify-content-center" style="text-align: center;">
+
+      {% for per in persons_dict %}
+      <div class="col-10 col-md-10 col-lg-5 col-xl-5">
+        <div class="question-row row text-black" style="text-align: center;">
+          <div class="col-12 col-sm-4" style="padding: 0;">
+            <img src="{{per.imgurl}}" style="height: 180px;" class="img-thumbnail">
+          </div>
+          <div class="col-12 col-sm-8">
+            <div class="row text-black bg-white" style="text-align: center;">
+              <div class="col-12" style="text-align: left;">
+                <h3>{{per.name}}</h3>
+              </div>
+              <div class="col-12 bg-primary" style="text-align: left; padding: 2px; margin-bottom: 5px;">
+              </div>
+              {% for el in per.attrlist %}
+              <div class="col-12" style="text-align: left;">
+                <h5>{{el.key}}: {{el.value}}</h5>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- 天使 -->
+
+
+    </div>
+  </div>
+
+  <!-- footer -->
+  {% include "footer.html" %}
+</body>
+
+</html>

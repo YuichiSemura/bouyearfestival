@@ -1,0 +1,128 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+  <link rel="shortcut icon" href="/static/favicon.ico" type="image/vnd.microsoft.icon">
+  <script src="/static/js/q1.js"></script>
+  <script src="/static/js/cmanObjMove_v091.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#box0').val($.cookie('box0'));
+      $('#box1').val($.cookie('box1'));
+      $('#box2').val($.cookie('box2'));
+      $('#box3').val($.cookie('box3'));
+      $('#box4').val($.cookie('box4'));
+      $('#box5').val($.cookie('box5'));
+      $('#box6').val($.cookie('box6'));
+      $('#box7').val($.cookie('box7'));
+      $('#box8').val($.cookie('box8'));
+      $('#box9').val($.cookie('box9'));
+      $('#box10').val($.cookie('box10'));
+      $("#submit").click(function() {
+        $.cookie('box0', $('#box0')[0].value);
+        $.cookie('box1', $('#box1')[0].value);
+        $.cookie('box2', $('#box2')[0].value);
+        $.cookie('box3', $('#box3')[0].value);
+        $.cookie('box4', $('#box4')[0].value);
+        $.cookie('box5', $('#box5')[0].value);
+        $.cookie('box6', $('#box6')[0].value);
+        $.cookie('box7', $('#box7')[0].value);
+        $.cookie('box8', $('#box8')[0].value);
+        $.cookie('box9', $('#box9')[0].value);
+        $.cookie('box10', $('#box10')[0].value);
+      })
+    })
+  </script>
+
+  <title>ログイン画面</title>
+</head>
+
+<body class="top">
+  <!-- header -->
+  {% include "header.html" %}
+
+  <div class="container-fluid bg-light2" style="touch-action: manipulation;">
+
+    <!-- ページタイトル -->
+    <div class="welcome row text-black bg-light2" style="text-align: center;">
+      <div class="col-sm-12">
+        <h2 style="margin:0px; padding:10px;">ログイン画面</h2>
+      </div>
+    </div>
+
+    <!-- 答え入力欄 -->
+    <div class=" answer bg-light2 ">
+      <form action="post_p1" method="POST">
+        <div class="form-group row">
+          {{ form.hidden_tag() }}
+          <label class="col-4" style=" text-align: right; ">
+            <h3>ユーザー名</h3>
+          </label>
+          <div class="col-4">
+            {{form.answer(class_="form-control ")}}
+          </div>
+          <div class="col-4">
+            <input type="submit" value="ログイン" class="btn btn-primary" id="submit" style="text-align: left;">
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- エラーメッセージ -->
+    <div class="row answer">
+      {% for error in form.answer.errors %}
+      <div class=" col-sm-12 col-12 ">
+        <div class=" text-danger " style=" text-align: center; ">
+          <h3>{{error}}</h3>
+        </div>
+      </div>
+      {% endfor %} {% if err_msg %}
+      <div class=" col-sm-12 col-12 ">
+        <div class=" text-danger " style=" text-align: center; ">
+          <h3>{{err_msg}}</h3>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- engel -->
+    {% if angel_msg %}
+    <div class="row align-items-start justify-content-center">
+      <div id="engelballoon" class="engelballoon col-8 col-sm-7 col-lg-6 col-xl-5">
+        {{angel_msg | safe}}
+      </div>
+      <label for="popup-on" class="col-3 col-sm-3 col-lg-2 col-xl-2">
+        <img id="engelimg" src="static/image/angel.png" class="engelimg yure2">
+      </label>
+    </div>
+    {% endif %}
+
+    <!-- 問題シリーズ -->
+    <div class="row align-items-start justify-content-center">
+      <!-- q1.html -->
+      <div id="q1" class="col-12 col-md-12 col-lg-10 col-xl-6">
+        <div class="bg-white question-row align-items-start justify-content-around">
+          {% include "q1.html" %} {% if is_after %} {% include "q1_ans2.html" %} {% else %} {% include "q1_ans.html" %} {% endif %}
+        </div>
+      </div>
+      <!-- q2.html -->
+      <div id="q2" class="col-12 col-md-12 col-lg-10 col-xl-6">
+        <div class="bg-white question-row align-items-start justify-content-around">
+          {% include "q2.html" %} {% if is_after %} {% include "q2_ans2.html" %} {% else %} {% include "q2_ans.html" %} {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  {% include "footer.html" %}
+
+</body>
+
+</html>

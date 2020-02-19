@@ -1,0 +1,59 @@
+.fuwafuwa01 {
+  position: relative;
+  margin: 2vh 0 3vh 0;
+}
+
+.fuwafuwa01 img {
+  width: 100%;
+  object-fit: contain;
+}
+
+.fuwafuwa01:before {
+  position: absolute;
+  top: 30px;
+  left: 100px;
+  z-index: 1;
+  width: 95px;
+  height: 100px;
+  background: url(https://3.bp.blogspot.com/-ayrWh2hoC8Y/UU--y9cvG5I/AAAAAAAAO9w/d6s_F-XTbTg/s400/kikyuu.png) no-repeat 0 0;
+  background-size: contain;
+  content: "";
+  animation: fuwafuwa1 5s linear 0s infinite;
+}
+
+.fuwafuwa01:after {
+  position: absolute;
+  right: 100px;
+  bottom: 20px;
+  width: 175px;
+  height: 200px;
+  z-index: 1;
+  background: url(https://3.bp.blogspot.com/-PE3rhZLMGOY/UU--zLHUguI/AAAAAAAAO90/e-Z5WmAQbjU/s400/kikyuu_woman.png) no-repeat 0 0;
+  background-size: contain;
+  content: "";
+  animation: fuwafuwa2 3s linear 0s infinite;
+}
+
+@keyframes fuwafuwa1 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50% {
+    transform: translate(0%, -20%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes fuwafuwa2 {
+  0% {
+    transform: translate(0%, -10%);
+  }
+  50% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(0%, -10%);
+  }
+}

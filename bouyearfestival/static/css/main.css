@@ -1,0 +1,292 @@
+html,
+body {
+  margin: 0 auto;
+}
+
+.footer {
+  font-size: 0.8em;
+}
+
+.bg-light2 {
+  background-color: #f2f2f2!important;
+}
+
+.mybtn {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.answer {
+  margin: 1vh;
+}
+
+.answer-form {
+  font-size: 3.5vw;
+}
+
+#q1 {
+  text-align: center;
+  font-family: "游明朝"!important;
+}
+
+.q1div {
+  display: inline-block;
+}
+
+.q1_reset_button {
+  font-size: 1.4em;
+  position: relative;
+  display: inline-block;
+  padding: 0.20em 0.45em;
+  margin: 0.3em;
+  text-decoration: none;
+  color: #000;
+  background: #FFF262;
+  /*色*/
+  border-radius: 4px;
+  /*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  border: solid 2px #eccf29;
+  /*線色*/
+  cursor: pointer;
+}
+
+.q1_btn {
+  font-size: 3em;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  padding: 0.22em 0.45em;
+  text-decoration: none;
+  color: #000;
+  background: #00B6ED;
+  /*色*/
+  border-radius: 4px;
+  /*角の丸み*/
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  border: solid 2px #4ec6db;
+  /*線色*/
+  cursor: pointer;
+}
+
+.q1_btn:active {
+  /*押したとき*/
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.ans_box_deco {
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid white;
+}
+
+.ans_box {
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid black;
+}
+
+#q2 {
+  text-align: center;
+  font-family: "游明朝"!important;
+}
+
+.q2areadiv {
+  display: inline-flex;
+  border: 5px solid #eccf29;
+}
+
+.q2contents {
+  font: "游明朝";
+  font-weight: bold;
+  text-align: center;
+  background: #ffffff00;
+  border: 2px solid #4ec6db;
+}
+
+#q3 {
+  text-align: center;
+  font-family: "游明朝"!important;
+  font-weight: bold!important;
+}
+
+#q3 p {
+  margin: 1%;
+}
+
+.q3table {
+  width: 100%;
+  font-size: 70px;
+  border-collapse: collapse;
+  filter: drop-shadow(0.5vw 0.5vw 0.5vw rgba(0, 0, 0, 0.3));
+}
+
+.q3table td {
+  border: solid 2%;
+  border-collapse: collapse;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  background: white;
+}
+
+.q3table td:before {
+  content: '';
+  display: block;
+  margin-top: 100%;
+}
+
+.q3contents {
+  position: absolute;
+  vertical-align: middle;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.q3input {
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateY(-100%) translateX(-50%);
+  transform: translateY(-100%) translateX(-50%);
+  overflow: hidden;
+  resize: none;
+  text-align: center;
+  vertical-align: middle;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.q3pink {
+  background: rgb(255, 211, 176);
+}
+
+.welcome {
+  background-color: azure;
+  text-align: right;
+}
+
+.engelballoon {
+  padding: 2em 1em 2em 1em;
+  text-align: center;
+  background: rgb(247, 247, 97);
+  border-radius: 5em;
+  filter: drop-shadow(0.3vw 0.3vw 0.3vw rgba(0, 0, 0, 0.3));
+  opacity: 1;
+}
+
+.engelballoon::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: -13.6%;
+  border: 2.5vw solid transparent;
+  border-left: 100px solid rgb(247, 247, 97);
+  z-index: -1;
+  -webkit-transform: rotate(-27deg);
+  transform: rotate(-27deg);
+}
+
+.engelimg {
+  position: absolute;
+  left: 20%;
+  max-height: 100em;
+  filter: drop-shadow(0.3vw 0.3vw 0.3vw rgba(0, 0, 0, 0.3));
+  z-index: 0;
+}
+
+#popup-on {
+  display: none;
+}
+
+#popup-on:checked+.engelballoon {
+  opacity: 1;
+  margin: 10px;
+}
+
+#q4 {
+  font-family: "游明朝";
+  font-weight: bold;
+  font-size: 35px!important;
+  text-align: center;
+}
+
+#q4 textarea {
+  font: "游明朝";
+  font-weight: bold;
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  resize: none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 163%;
+  padding: 0;
+  border: 2px solid black;
+}
+
+.question-row {
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+}
+
+@keyframes letterguide {
+  0% {
+    opacity: 0;
+  }
+  53% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#loginguide {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  color: rgb(32, 60, 184);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  animation: letterguide ease-in-out;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+}
+
+#loginguide-img {
+  position: absolute;
+  padding: 0;
+  margin: 0 auto;
+  animation: letterguideimg ease infinite;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  white-space: nowrap;
+  filter: drop-shadow(1vw 1vw 1vw rgba(0, 0, 0, 0.3));
+}
+
+@keyframes letterguideimg {
+  0% {
+    transform: translateY(3vw)
+  }
+  50% {
+    transform: translateY(0vw)
+  }
+  100% {
+    transform: translateY(3vw)
+  }
+}
+
+.bg-persons {
+  background-color: rgb(232, 255, 233);
+}
