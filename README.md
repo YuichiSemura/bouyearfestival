@@ -2,7 +2,27 @@
 ## 忘年会をするよ〜
 これは忘年会用の謎解きアプリだよ～
 
-## 導入方法
+### 公開版リポジトリ
+
+2019年の会社の忘年会でやりました。3人で作りました～。  
+忘年会版からheroku公開版にするにあたって、マイナーチェンジを行いました。  
+当たり前ですがソースコードを見ると答えがわかるので、見ないようにしてください。
+
+＜変更点＞
+
+* 忘年会でやったコント　→　Googleドキュメントで台本を掲載
+* 忘年会で配ったしおり　→　新ページを作って代用
+* 謎の答え　→　個人情報をほぼ削除
+
+### 作った人
+
+一応紹介します。[YuichiSemura](https://github.com/YuichiSemura)、[thtitech](https://github.com/thtitech)、[tofuchic](https://github.com/tofuchic)  
+
+## 開発環境
+
+開発時のREADME.mdの内容↓
+
+### 導入方法
 1. まず[ここ](https://qiita.com/1000ch/items/93841f76ea52551b6a97)を参考にpyenvを導入する。Macの場合、 `brew install pyenv` でもいける気がする。
 **pythonの導入はまだしないこと。**
 また、windowsにはpyenvを導入できないので、その場合はanaconda3-4.1.0を自力でインストールする。
@@ -37,7 +57,7 @@ $ >> flask.__version__ # 1.1.1になっていることを確認
 $ pip install Flask-WTF
 ```
 
-## 設定ファイルの記述
+### 設定ファイルの記述
 `app.conf` の内容を自分の環境にそって書き換える。
 ```
 port=8080
@@ -48,7 +68,7 @@ sec_name=sec.pem
 pub_name=pub.pem
 ```
 
-## サーバの起動
+### サーバの起動
 ```
 $ python server.py
 ```
